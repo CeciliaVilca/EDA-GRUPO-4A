@@ -70,6 +70,18 @@ void printArray(int arr[], int n)
     cout << endl;
 }
 
+int getTime_merge(int arr[],int l , int n)
+{
+    auto start = std::chrono::high_resolution_clock::now();
+
+    mergeSort(arr,l,n);
+
+    auto finish = std::chrono::high_resolution_clock::now();
+    int Ftime=std::chrono::duration_cast<std::chrono::nanoseconds>(finish-start).count();
+    return Ftime;
+
+
+}
 int main()
 {
     int arr[] = {12, 11, 13, 5, 6, 7};
