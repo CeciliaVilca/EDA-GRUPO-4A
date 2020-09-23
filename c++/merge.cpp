@@ -1,8 +1,17 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-/**
-**/
+///--- GENERAR ARRAY
+
+void generateArray(int arr[], int num)
+{
+    srand(time(NULL));
+
+    for(int a=0; a<num; a++)
+    {
+        arr[a] = 1 + rand() % (num);
+    }
+}
 
 
 // MERGE SORT
@@ -84,12 +93,13 @@ int getTime_merge(int arr[],int l , int n)
 }
 int main()
 {
-    int arr[] = {12, 11, 13, 5, 6, 7};
-    int n = sizeof(arr)/sizeof(arr[0]);
+    int num=100;
 
+    int arr[num];
 
-    mergeSort(arr,0 ,n-1);
-
-    cout << "Sorted array is \n";
-    printArray(arr, n);
+    generateArray(arr,num);
+    
+    int Tmerge=getTime_merge(arr,0,num);
+    
+    cout<<"Merge : " <<Tmerge<<" ns ";
 }
