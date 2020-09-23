@@ -7,16 +7,12 @@ def merge(arr):
         L = arr[:mid] 
         R = arr[mid:] 
 
-        nL = m - L + 1
-        nR = R - m
-
-  
         i = j = k = 0
 
-        for i in range(0, nL):
+        for i in range(0, L):
         L[i] = arr[l + i]
 
-        or j in range(0, nR):
+        or j in range(0, R):
         R[j] = arr[m + 1 + j]
 
   
