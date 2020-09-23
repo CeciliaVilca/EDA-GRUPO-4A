@@ -1,15 +1,21 @@
-def mergeSort(arr): 
+import math  
+
+def merge(arr): 
     if len(arr) >1:
         # Mitad del array y divide en dos
-        mid = len(arr)//2 
+        m = len(arr)//2 
         L = arr[:mid] 
         R = arr[mid:] 
   
-        mergeSort(L) 
-        mergeSort(R) 
-  
         i = j = k = 0
-          
+
+        for i in range(0, nL):
+        L[i] = arr[l + i]
+
+        or j in range(0, nR):
+        R[j] = arr[m + 1 + j]
+
+  
         while i < len(L) and j < len(R): 
             if L[i] < R[j]: 
                 arr[k] = L[i] 
@@ -28,6 +34,18 @@ def mergeSort(arr):
             arr[k] = R[j] 
             j+= 1
             k+= 1
+
+#
+def mergeSort(arr, l, r):
+    
+    if l < r:
+        m = (l + r) // 2
+
+        mergeSort(arr, l, m)
+        mergeSort(arr, m + 1, r)
+        merge(arr, l, m, r)
+
+#
    
 def printList(arr): 
     for i in range(len(arr)):         
@@ -39,6 +57,10 @@ if __name__ == '__main__':
     arr = [12, 11, 13, 5, 6, 7]  
     print ("Given array is", end ="\n")  
     printList(arr) 
-    mergeSort(arr) 
+    mergeSort(arr,0,len(arr)-1) 
     print("Sorted array is: ", end ="\n") 
     printList(arr) 
+
+
+
+
