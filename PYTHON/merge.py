@@ -6,6 +6,10 @@ def merge(arr):
         m = len(arr)//2 
         L = arr[:mid] 
         R = arr[mid:] 
+
+        nL = m - L + 1
+        nR = R - m
+
   
         i = j = k = 0
 
@@ -43,7 +47,7 @@ def mergeSort(arr, l, r):
 
         mergeSort(arr, l, m)
         mergeSort(arr, m + 1, r)
-        merge(arr, l, m, r)
+        merge(arr)
 
 #
    
