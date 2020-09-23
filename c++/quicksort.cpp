@@ -13,18 +13,15 @@ int partition (int arr[], int low, int high)
 {
 	int pivot = arr[high]; // pivot
 	int i = (low - 1);
-	int cont=0;
 	for (int j = low; j <= high - 1; j++)
 	{
 		if (arr[j] < pivot)
 		{
 			i++;
-			cont++;
 			swap(&arr[i], &arr[j]);
 		}
 	}
 	swap(&arr[i + 1], &arr[high]);
-	contador_total=contador_total+cont;
 	return (i + 1);
 }
 
@@ -48,14 +45,20 @@ void printArray(int arr[], int size)
 
 int main()
 {
-    int tam=20;
-    int A[tam];
+    unsigned t0, t1;
+
+    int tam=100;
+    int arr[tam];
     for(int i=0;i<tam;i++)
     {
-        A[i]=rand()%100;
+        arr[i]=rand();
     }
-    quickSort(A,0,tam-1);
-    printArray(A, tam);
-    
-    return 0;
+
+    t0=clock();
+    quickSort(arr,0,tam-1);
+    printArray(arr, tam);
+    t1 = clock();
+    double time = (double(t1-t0)/CLOCKS_PER_SEC);
+    cout << "\n Execution Time: " << time << endl;
 }
+
