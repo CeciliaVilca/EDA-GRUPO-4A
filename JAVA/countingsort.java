@@ -49,7 +49,7 @@ class CountingSort
       int val = 10;
       for (int j = 1000; j < 100000; j+=val)
       {
-        File fichero = new File("C:/Users/Usuario/Desktop/valores_10_5.txt");
+        File fichero = new File("C:/Users/Usuario/Desktop/valores.txt");
         Scanner s = null;
         valor = 0;
         try
@@ -116,7 +116,7 @@ class CountingSort
       }
 
       // Empieza parte Final
-      File fichero = new File("C:/Users/Usuario/Desktop/valores_10_5.txt");
+      File fichero = new File("C:/Users/Usuario/Desktop/valores.txt");
       Scanner s = null;
       valor = 0;
       try
