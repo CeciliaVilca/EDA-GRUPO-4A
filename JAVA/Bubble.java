@@ -37,7 +37,7 @@ class BubbleSort
         int val = 10;
         for (int j = 1000; j < 100000; j+=val)
         {
-          File fichero = new File("C:/Users/Usuario/Desktop/valores_10_5.txt");
+          File fichero = new File("C:/Users/Usuario/Desktop/valores.txt");
           Scanner s = null;
           valor = 0;
           try
@@ -73,7 +73,7 @@ class BubbleSort
           TFin = System.currentTimeMillis();
           tiempo = (TFin - TInicio)/1000;
 
-          File archivo = new File("valores_Java.txt");
+          File archivo = new File("valores_Java_b.txt");
           BufferedWriter bw = null;
           FileWriter fw = null;
           try
@@ -104,7 +104,7 @@ class BubbleSort
         }
 
         // Empieza parte Final
-        File fichero = new File("C:/Users/Usuario/Desktop/valores_10_5.txt");
+        File fichero = new File("C:/Users/Usuario/Desktop/valores.txt");
         Scanner s = null;
         valor = 0;
         try
@@ -139,7 +139,7 @@ class BubbleSort
         TFin = System.currentTimeMillis();
         tiempo = (TFin - TInicio)/1000;
 
-        File archivo = new File("valores_Java.txt");
+        File archivo = new File("valores_Java_b.txt");
         BufferedWriter bw = null;
         FileWriter fw = null;
         try

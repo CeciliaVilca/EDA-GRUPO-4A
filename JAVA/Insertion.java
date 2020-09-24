@@ -29,7 +29,7 @@ class InsertionSort {
       int val = 10;
       for (int j = 1000; j < 100000; j+=val)
       {
-        File fichero = new File("../valores_10_5.txt");
+        File fichero = new File("../valores.txt");
         Scanner s = null;
         valor = 0;
         try
@@ -65,7 +65,7 @@ class InsertionSort {
         TFin = System.currentTimeMillis();
         tiempo = (TFin - TInicio)/1000;
 
-        File archivo = new File("valores_Java.txt");
+        File archivo = new File("valores_Java_i.txt");
         BufferedWriter bw = null;
         FileWriter fw = null;
         try
@@ -96,7 +96,7 @@ class InsertionSort {
       }
 
       // Empieza parte Final
-      File fichero = new File("../valores_10_5.txt");
+      File fichero = new File("../valores.txt");
       Scanner s = null;
       valor = 0;
       try
@@ -131,7 +131,7 @@ class InsertionSort {
       TFin = System.currentTimeMillis();
       tiempo = (TFin - TInicio)/1000;
 
-      File archivo = new File("valores_Java.txt");
+      File archivo = new File("valores_Java_i.txt");
       BufferedWriter bw = null;
       FileWriter fw = null;
       try
