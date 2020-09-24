@@ -1,40 +1,168 @@
-package selection;
+import java.io.*;
+import java.io.File;
+import java.util.Scanner;
 
-public class Selection {
 
-    void sort(int arr[]) 
-    { 
-        int n = arr.length; 
-   
-        for (int i = 0; i < n-1; i++) 
-        { 
-            // Encuentra el minimo 
-            int min_idx = i; 
-            for (int j = i+1; j < n; j++) 
-                if (arr[j] < arr[min_idx]) 
-                    min_idx = j; 
-  
-            // Swap primer elemento con el minimo 
-            int temp = arr[min_idx]; 
-            arr[min_idx] = arr[i]; 
-            arr[i] = temp; 
-        } 
-    } 
-    
-    void printArray(int arr[]) 
-    { 
-        int n = arr.length; 
-        for (int i=0; i<n; ++i) 
-            System.out.print(arr[i]+" "); 
-        System.out.println(); 
-    } 
-   
-    public static void main(String args[]) 
-    { 
-        Selection ob = new Selection(); 
-        int arr[] = {64,25,12,22,11}; 
-        ob.sort(arr); 
-        System.out.println("Sorted array"); 
-        ob.printArray(arr); 
-    } 
+class SelectionSort
+{
+    void sort(int a[],int b)
+    {
+        int n = b;
+        for (int i = 0; i < n-1; i++)
+        {
+            int min_idx = i;
+            for (int j = i+1; j < n; j++)
+            {
+                if (a[j] < a[min_idx])
+                {
+                    min_idx = j;
+                }
+
+            }
+
+            int temp = a[min_idx];
+            a[min_idx] = a[i];
+            a[i] = temp;
+        }
+    }
+
+    public static void main(String args[])
+    {
+      int[] numeros = new int[100000];
+      SelectionSort ob = new SelectionSort();
+      //ArrayList<Integer> a = new ArrayList<Integer>();
+      int valor =0;
+      int val = 10;
+      for (int j = 1000; j < 100000; j+=val)
+      {
+        File fichero = new File("../valores_10_5.txt");
+        Scanner s = null;
+        valor = 0;
+        try
+        {
+            s = new Scanner(fichero);
+
+            while (s.hasNextLine())
+            {
+                if(valor == j) break;
+                String linea = s.nextLine();
+                numeros[valor++] = Integer.parseInt(linea);
+            }
+
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Mensaje: " + ex.getMessage());
+        }
+        finally
+        {
+            try
+            {
+                if (s != null) s.close();
+            }
+            catch (Exception ex2)
+            {
+                System.out.println("Mensaje 2: " + ex2.getMessage());
+            }
+        }
+        double TInicio, TFin, tiempo;
+        TInicio = System.currentTimeMillis();
+        ob.sort(numeros,valor);
+        TFin = System.currentTimeMillis();
+        tiempo = (TFin - TInicio)/1000;
+
+        File archivo = new File("valores_Java.txt");
+        BufferedWriter bw = null;
+        FileWriter fw = null;
+        try
+        {
+          fw = new FileWriter(archivo.getAbsoluteFile(), true);
+          bw = new BufferedWriter(fw);
+          bw.write(Integer.toString(j) + "," + Double.toString(tiempo)+"\n");
+          bw.close();
+        }
+        catch(IOException e)
+        {
+          System.out.println("Error E/S: "+e);
+        }
+        finally
+        {
+          try
+          {
+              if (bw != null) bw.close();
+              if (fw != null) fw.close();
+          }
+          catch (IOException ex)
+          {
+              System.out.println("Error E/S: "+ex);
+          }
+
+        }
+        val+=1000;
+      }
+
+      // Empieza parte Final
+      File fichero = new File("../valores_10_5.txt");
+      Scanner s = null;
+      valor = 0;
+      try
+      {
+          s = new Scanner(fichero);
+
+          while (s.hasNextLine())
+          {
+              String linea = s.nextLine();
+              numeros[valor++] = Integer.parseInt(linea);
+          }
+
+      }
+      catch(Exception ex)
+      {
+          System.out.println("Mensaje: " + ex.getMessage());
+      }
+      finally
+      {
+          try
+          {
+              if (s != null) s.close();
+          }
+          catch (Exception ex2)
+          {
+              System.out.println("Mensaje 2: " + ex2.getMessage());
+          }
+      }
+      double TInicio, TFin, tiempo;
+      TInicio = System.currentTimeMillis();
+      ob.sort(numeros,valor);
+      TFin = System.currentTimeMillis();
+      tiempo = (TFin - TInicio)/1000;
+
+      File archivo = new File("valores_Java.txt");
+      BufferedWriter bw = null;
+      FileWriter fw = null;
+      try
+      {
+        fw = new FileWriter(archivo.getAbsoluteFile(), true);
+        bw = new BufferedWriter(fw);
+        bw.write(Integer.toString(valor) + "," + Double.toString(tiempo)+"\n");
+        bw.close();
+      }
+      catch(IOException e)
+      {
+        System.out.println("Error E/S: "+e);
+      }
+      finally
+      {
+        try
+        {
+            if (bw != null) bw.close();
+            if (fw != null) fw.close();
+        }
+        catch (IOException ex)
+        {
+            System.out.println("Error E/S: "+ex);
+        }
+
+      }
+    }
 }
